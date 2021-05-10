@@ -3,7 +3,6 @@
  */
 package de.thm.mni.microservices.gruppe6.lib
 
-import de.thm.mni.microservices.gruppe6.Library
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
