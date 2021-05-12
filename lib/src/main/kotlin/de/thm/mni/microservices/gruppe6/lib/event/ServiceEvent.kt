@@ -1,6 +1,8 @@
 package de.thm.mni.microservices.gruppe6.lib.event
 
-data class ServiceEvent (
+import java.io.Serializable
+
+data class ServiceEvent(
     val eventCode: EventCode,
-    val message: String
-    )
+    val content: Serializable
+    ): Serializable
