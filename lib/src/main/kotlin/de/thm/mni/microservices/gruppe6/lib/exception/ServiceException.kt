@@ -4,8 +4,11 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
 
 class ServiceException: ResponseStatusException {
-    constructor() : super(HttpStatus.INTERNAL_SERVER_ERROR)
-    constructor(cause: Throwable) : super(HttpStatus.INTERNAL_SERVER_ERROR, cause.message, cause)
-    constructor(reason: String?) : super(HttpStatus.INTERNAL_SERVER_ERROR, reason)
-    constructor(reason: String?, cause: Throwable?) : super(HttpStatus.INTERNAL_SERVER_ERROR, reason, cause)
+    constructor() : this(HttpStatus.INTERNAL_SERVER_ERROR)
+    constructor(cause: Throwable) : this(HttpStatus.INTERNAL_SERVER_ERROR, cause.message, cause)
+    constructor(reason: String?) : this(HttpStatus.INTERNAL_SERVER_ERROR, reason)
+    constructor(reason: String?, cause: Throwable?) : this(HttpStatus.INTERNAL_SERVER_ERROR, reason, cause)
+    constructor(httpStatus: HttpStatus) : super(httpStatus)
+    constructor(httpStatus: HttpStatus, reason: String?) : super(httpStatus, reason)
+    constructor(httpStatus: HttpStatus, reason: String?, cause: Throwable?) : super(httpStatus, reason, cause)
 }
