@@ -9,6 +9,16 @@ abstract class DomainEvent: Serializable {
 }
 
 enum class EventCode {
+    ISSUE_CHANGED_MESSAGE,
+    ISSUE_CHANGED_DEADLINE,
+    ISSUE_ASSIGNED_USER,
+    ISSUE_REMOVED_USER,
+
+
+
+
+
     USER_JOINED_PROJECT,
+    USER_LEFT_PROJECT,
     USER_ASSIGNED_ISSUE
 }
