@@ -1,6 +1,8 @@
 package de.thm.mni.microservices.gruppe6.lib.event
 
 import java.io.Serializable
+import java.time.LocalDate
+import java.util.*
 
 abstract class DomainEvent : Serializable {
 
@@ -12,8 +14,7 @@ enum class DomainEventCode {
     /** Issue-Events */
     ISSUE_CHANGED_MESSAGE,
     ISSUE_CHANGED_DEADLINE,
-    ISSUE_ASSIGNED_USER,
-    ISSUE_REMOVED_USER,
+    ISSUE_CHANGED_USER,
 
     /** User-Events*/
     USER_JOINED_PROJECT,
@@ -23,7 +24,28 @@ enum class DomainEventCode {
     /** Project-Events */
 }
 
-data class IssueDomainEvent(override val code: DomainEventCode) : DomainEvent()
+//data class IssueDomainEvent(override val code: DomainEventCode) : DomainEvent()
+
+data class DomainEventChangedString(
+    override val code: DomainEventCode,
+    val id: UUID,
+    val oldData: String?,
+    val newData: String?
+): DomainEvent()
+
+data class DomainEventChangedUUID(
+    override val code: DomainEventCode,
+    val id: UUID,
+    val oldData: UUID?,
+    val newData: UUID?
+        ): DomainEvent()
+
+data class DomainEventChangedDate(
+    override val code: DomainEventCode,
+    val id: UUID,
+    val oldData: LocalDate?,
+    val newData: LocalDate?
+): DomainEvent()
 
 data class UserDomainEvent(override val code: DomainEventCode) : DomainEvent()
 
