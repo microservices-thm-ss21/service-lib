@@ -27,8 +27,6 @@ enum class DomainEventCode {
     /** Project-Events */
 }
 
-//data class IssueDomainEvent(override val code: DomainEventCode) : DomainEvent()
-
 data class DomainEventChangedString(
     override val code: DomainEventCode,
     val id: UUID,
@@ -50,7 +48,4 @@ data class DomainEventChangedDate(
     val newData: LocalDate?
 ): DomainEvent()
 
-data class UserDomainEvent(override val code: DomainEventCode) : DomainEvent()
-
-data class ProjectDomainEvent(override val code: DomainEventCode) : DomainEvent()
 
