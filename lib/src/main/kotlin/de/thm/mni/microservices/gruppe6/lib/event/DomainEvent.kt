@@ -25,6 +25,7 @@ enum class DomainEventCode {
     USER_CHANGED_GLOBALROLE,
 
     /** Project-Events */
+    PROJECT_CHANGED_NAME
 }
 
 //data class IssueDomainEvent(override val code: DomainEventCode) : DomainEvent()
