@@ -25,7 +25,9 @@ enum class DomainEventCode {
     USER_CHANGED_GLOBALROLE,
 
     /** Project-Events */
-    PROJECT_CHANGED_NAME
+    PROJECT_CHANGED_NAME,
+    PROJECT_CHANGED_MEMBER,
+    PROJECT_CHANGED_ALL_MEMBERS
 }
 
 data class DomainEventChangedString(
@@ -49,4 +51,11 @@ data class DomainEventChangedDate(
     val newData: LocalDate?
 ): DomainEvent()
 
-
+data class DomainEventChangedStringUUID(
+    override val code: DomainEventCode,
+    val id: UUID,
+    val oldDataUUID: UUID?,
+    val newDataUUID: UUID?,
+    val oldDataString: String?,
+    val newDataString: String?
+): DomainEvent()
