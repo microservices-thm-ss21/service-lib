@@ -14,7 +14,7 @@ enum class DataEventCode {
     DELETED
 }
 
-data class IssueDataEvent(override val code: DataEventCode, override val id: UUID): DataEvent()
+data class IssueDataEvent(override val code: DataEventCode, override val id: UUID, val projectId: UUID? = null): DataEvent()
 
 data class UserDataEvent(override val code: DataEventCode, override val id: UUID): DataEvent()
 
