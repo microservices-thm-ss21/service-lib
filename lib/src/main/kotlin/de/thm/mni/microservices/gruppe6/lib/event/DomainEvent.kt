@@ -83,11 +83,18 @@ data class DomainEventChangedDate(
     val newData: LocalDate?
 ): DomainEvent()
 
+/**
+ * Used generic for any Domain event which changes of one object (with ID) and an additional affected id one date value to another date value.
+ * @param code specifies what was the issuing event, allowing the display of a distinct event message.
+ * @param id unique UUID of the object changed
+ * @param id unique UUID of an additional object changed
+ * @param oldData the old date value for message display purposes. None if old value was unset
+ * @param newData the new date value for message display purposes. None if new value is unset
+ */
 data class DomainEventChangedStringUUID(
     override val code: DomainEventCode,
     val id: UUID,
-    val oldDataUUID: UUID?,
-    val newDataUUID: UUID?,
+    val affectedId: UUID?,
     val oldDataString: String?,
     val newDataString: String?
 ): DomainEvent()
