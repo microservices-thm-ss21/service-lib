@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
 
 /**
- * TODO
+ * Exception which maps the HttpStatus and is being handled by the ResponseStatusExceptionResolver to send a HTTP Response
  */
 class ServiceException: ResponseStatusException {
     constructor() : this(HttpStatus.INTERNAL_SERVER_ERROR)
