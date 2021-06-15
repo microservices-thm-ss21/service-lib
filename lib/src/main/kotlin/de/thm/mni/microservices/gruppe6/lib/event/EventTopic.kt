@@ -1,5 +1,8 @@
 package de.thm.mni.microservices.gruppe6.lib.event
 
+/**
+ * Enum-Alike, but compiler constant class for defining event topics. Used within the sender and receiver
+ */
 sealed class EventTopic {
     object DataEvents {
         const val topic = "microservices.dataEvents"

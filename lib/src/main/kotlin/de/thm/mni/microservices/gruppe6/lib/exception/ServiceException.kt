@@ -3,6 +3,9 @@ package de.thm.mni.microservices.gruppe6.lib.exception
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
 
+/**
+ * TODO
+ */
 class ServiceException: ResponseStatusException {
     constructor() : this(HttpStatus.INTERNAL_SERVER_ERROR)
     constructor(cause: Throwable) : this(HttpStatus.INTERNAL_SERVER_ERROR, cause)
