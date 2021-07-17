@@ -39,4 +39,6 @@ dependencies {
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.springframework.boot:spring-boot-starter-webflux:2.4.5")
+    api("io.jsonwebtoken:jjwt-impl:0.11.2")
+    api("io.jsonwebtoken:jjwt-jackson:0.11.2")
 }
