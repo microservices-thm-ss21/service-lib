@@ -3,8 +3,8 @@ package de.thm.mni.microservices.gruppe6.lib.classes.userService
 import com.fasterxml.jackson.annotation.JsonIgnore
 import io.jsonwebtoken.Claims
 import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
-import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import java.time.Instant
 import java.time.LocalDate
@@ -15,15 +15,15 @@ import java.util.*
 @Table("users")
 data class User(
     @Id var id: UUID? = null,
-    private var username: String,
-    private var password: String,
-    var name: String,
-    var lastName: String,
-    var email: String,
-    var dateOfBirth: LocalDate,
-    var createTime: LocalDateTime,
-    var globalRole: String,
-    var lastLogin: LocalDateTime?
+    @Column private var username: String,
+    @Column private var password: String,
+    @Column var name: String,
+    @Column var lastName: String,
+    @Column var email: String,
+    @Column var dateOfBirth: LocalDate,
+    @Column var createTime: LocalDateTime,
+    @Column var globalRole: String,
+    @Column var lastLogin: LocalDateTime?
 ): UserDetails {
     constructor(userDTO: UserDTO): this(
          null

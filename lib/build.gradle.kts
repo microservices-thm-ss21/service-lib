@@ -33,7 +33,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("org.springframework.security:spring-security-core:5.4.6")
+    api("org.springframework.security:spring-security-core:5.4.6")
     implementation("org.springframework.boot:spring-boot-starter-data-r2dbc:2.4.5")
 
 
