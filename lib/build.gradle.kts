@@ -33,13 +33,12 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     api("org.springframework.security:spring-security-core:5.4.6")
+    api("org.springframework:spring-web:5.3.8")
     api("org.springframework.data:spring-data-r2dbc:1.2.9")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api("org.springframework.boot:spring-boot-starter-webflux:2.4.7")
     api("io.jsonwebtoken:jjwt-impl:0.11.2")
     api("io.jsonwebtoken:jjwt-jackson:0.11.2")
 }
