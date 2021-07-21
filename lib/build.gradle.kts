@@ -1,6 +1,5 @@
 plugins {
-    id("org.springframework.boot") version "2.4.7"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    java
     kotlin("jvm") version "1.4.32"
     kotlin("plugin.spring") version "1.4.32"
     `maven-publish`
@@ -27,22 +26,20 @@ publishing {
     }
 }
 
-
-
 dependencies {
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    api("org.springframework.security:spring-security-core")
-    implementation("org.springframework.data:spring-data-r2dbc")
+    api("org.springframework.security:spring-security-core:5.4.6")
+    implementation("org.springframework.data:spring-data-r2dbc:1.2.9")
 
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api("org.springframework.boot:spring-boot-starter-webflux")
+    api("org.springframework.boot:spring-boot-starter-webflux:2.4.7")
     api("io.jsonwebtoken:jjwt-impl:0.11.2")
     api("io.jsonwebtoken:jjwt-jackson:0.11.2")
 }
