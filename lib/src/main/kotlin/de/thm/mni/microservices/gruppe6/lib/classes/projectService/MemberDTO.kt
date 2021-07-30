@@ -7,5 +7,5 @@ import java.util.*
  */
 data class MemberDTO (
     var userId: UUID? = null,
-    var projectRole: String? = null
+    var projectRole: ProjectRole = ProjectRole.USER
 )

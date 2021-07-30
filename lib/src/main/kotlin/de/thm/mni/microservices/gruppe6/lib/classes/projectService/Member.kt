@@ -5,12 +5,12 @@ data class Member(
         var id: UUID?,
         var projectId: UUID,
         var userId: UUID,
-        var projectRole: String
+        var projectRole: ProjectRole
 ) {
     constructor(projectId: UUID, memberDTO: MemberDTO) : this(
             null,
             projectId,
             memberDTO.userId!!,
-            memberDTO.projectRole!!
+            memberDTO.projectRole
     )
 }
