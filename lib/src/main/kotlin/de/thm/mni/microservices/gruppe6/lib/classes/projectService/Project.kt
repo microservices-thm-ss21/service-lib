@@ -1,19 +1,22 @@
 package de.thm.mni.microservices.gruppe6.lib.classes.projectService
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.relational.core.mapping.Table
 import java.time.LocalDateTime
 import java.util.*
 
+@Table("projects")
 data class Project(
-    var id: UUID?,
+    @Id var id: UUID?,
     var name: String,
     var creatorId: UUID?,
     var createTime: LocalDateTime,
 ) {
-    constructor(projectDTO: ProjectDTO) : this(
-            null,
-            projectDTO.name!!,
-            projectDTO.creatorId,
-            LocalDateTime.now()
+    constructor(projectName: String, creatorId: UUID) : this(
+        null,
+        projectName,
+        creatorId,
+        LocalDateTime.now()
     )
 }
 
