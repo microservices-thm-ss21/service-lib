@@ -14,5 +14,5 @@ class UserDTO {
     var email: String? = null
     @JsonFormat(pattern = "dd.MM.yyyy")
     var dateOfBirth: LocalDate? = null
-    var globalRole: String? = null
+    var globalRole: GlobalRole? = null
 }

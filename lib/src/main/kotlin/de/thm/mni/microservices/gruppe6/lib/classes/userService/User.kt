@@ -34,7 +34,7 @@ data class User(
         ,userDTO.email!!
         ,userDTO.dateOfBirth!!
         ,LocalDateTime.now()
-        ,userDTO.globalRole!!
+        ,userDTO.globalRole!!.name
         ,null
     )
 
