@@ -18,7 +18,8 @@ data class Issue(
     @JsonFormat(pattern = "dd.MM.yyyy")
     var deadline: LocalDate? = null,
     var createTime: LocalDateTime,
-    var updateTime: LocalDateTime? = null
+    var updateTime: LocalDateTime? = null,
+    var status: String = IssueStatus.OPEN.name
 ) {
     constructor(issueDTO: IssueDTO, creatorId: UUID): this(
         null

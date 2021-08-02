@@ -12,5 +12,6 @@ data class IssueDTO (
     var assignedUserId: UUID? = null,
     var projectId: UUID? = null,
     @JsonFormat(pattern = "dd.MM.yyyy")
-    var deadline: LocalDate? = null
+    var deadline: LocalDate? = null,
+    var status: IssueStatus? = null
 )

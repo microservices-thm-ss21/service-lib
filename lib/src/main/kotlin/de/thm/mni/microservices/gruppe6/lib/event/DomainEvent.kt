@@ -26,6 +26,7 @@ enum class DomainEventCode {
     ISSUE_CHANGED_MESSAGE,
     ISSUE_CHANGED_DEADLINE,
     ISSUE_CHANGED_USER,
+    ISSUE_CHANGED_STATUS,
 
     /** User-Events*/
     USER_CHANGED_USERNAME,
