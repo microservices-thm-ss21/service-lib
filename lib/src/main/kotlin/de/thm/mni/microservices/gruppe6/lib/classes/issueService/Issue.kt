@@ -14,7 +14,7 @@ data class Issue(
     var projectId: UUID,
     var message: String,
     var assignedUserId: UUID? = null,
-    var creatorId: UUID,
+    var creatorId: UUID? = null,
     @JsonFormat(pattern = "dd.MM.yyyy")
     var deadline: LocalDate? = null,
     var createTime: LocalDateTime,
