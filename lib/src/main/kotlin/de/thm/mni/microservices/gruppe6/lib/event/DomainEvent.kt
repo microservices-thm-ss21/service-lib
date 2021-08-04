@@ -54,7 +54,7 @@ data class DomainEventChangedString(
     val id: UUID,
     val oldData: String?,
     val newData: String?
-): DomainEvent()
+) : DomainEvent()
 
 /**
  * Used generic for any Domain event which changes of one object (with ID) one UUID value to another UUID value.
@@ -68,7 +68,7 @@ data class DomainEventChangedUUID(
     val id: UUID,
     val oldData: UUID?,
     val newData: UUID?
-        ): DomainEvent()
+) : DomainEvent()
 
 /**
  * Used generic for any Domain event which changes of one object (with ID) one date value to another date value.
@@ -82,7 +82,7 @@ data class DomainEventChangedDate(
     val id: UUID,
     val oldData: LocalDate?,
     val newData: LocalDate?
-): DomainEvent()
+) : DomainEvent()
 
 /**
  * Used generic for any Domain event which changes of one object (with ID) and an additional affected id one date value to another date value.
@@ -98,4 +98,4 @@ data class DomainEventChangedStringUUID(
     val affectedId: UUID?,
     val oldDataString: String?,
     val newDataString: String?
-): DomainEvent()
+) : DomainEvent()

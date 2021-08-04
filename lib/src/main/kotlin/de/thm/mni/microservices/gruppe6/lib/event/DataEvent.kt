@@ -8,7 +8,7 @@ import java.util.*
  * @property code DataEventcode whether the object was created, updated or deleted.
  * @property id the unique UUID of the object issuing this event
  */
-abstract class DataEvent: Serializable {
+abstract class DataEvent : Serializable {
     abstract val code: DataEventCode
     abstract val id: UUID
 }
@@ -28,16 +28,19 @@ enum class DataEventCode {
  * @param id the unique UUID of the object issuing this event
  * @param projectId Optional issue-specific param, the project associated with this issue
  */
-data class IssueDataEvent(override val code: DataEventCode, override val id: UUID, val projectId: UUID? = null): DataEvent()
+data class IssueDataEvent(override val code: DataEventCode, override val id: UUID, val projectId: UUID? = null) :
+    DataEvent()
+
 /**
  * Special Event for the UserServices, issued when creating/updating/deleting a user so other services can update their DB.
  * @param code The cause of the Event: update, delete, create
  * @param id the unique UUID of the object issuing this event
  */
-data class UserDataEvent(override val code: DataEventCode, override val id: UUID): DataEvent()
+data class UserDataEvent(override val code: DataEventCode, override val id: UUID) : DataEvent()
+
 /**
  * Special Event for the ProjectService, issued when creating/updating/deleting a project so other services can update their DB.
  * @param code The cause of the Event: update, delete, create
  * @param id the unique UUID of the object issuing this event
  */
-data class ProjectDataEvent(override val code: DataEventCode, override val id: UUID): DataEvent()
+data class ProjectDataEvent(override val code: DataEventCode, override val id: UUID) : DataEvent()

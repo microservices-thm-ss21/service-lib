@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus
  * @param exception
  * @return coveredException
  */
-fun coverUnexpectedException(exception: Throwable): Throwable{
+fun coverUnexpectedException(exception: Throwable): Throwable {
     return if (exception !is ServiceException) {
         ServiceException(HttpStatus.INTERNAL_SERVER_ERROR)
     } else {

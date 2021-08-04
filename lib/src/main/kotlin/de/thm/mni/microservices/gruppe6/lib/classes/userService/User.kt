@@ -24,29 +24,42 @@ data class User(
     @Column var createTime: LocalDateTime,
     @Column var globalRole: String,
     @Column var lastLogin: LocalDateTime?
-): UserDetails {
-    constructor(userDTO: UserDTO): this(
-         null
-        ,userDTO.username!!
-        ,userDTO.password!!
-        ,userDTO.name!!
-        ,userDTO.lastName!!
-        ,userDTO.email!!
-        ,userDTO.dateOfBirth!!
-        ,LocalDateTime.now()
-        ,userDTO.globalRole!!.name
-        ,null
+) : UserDetails {
+    constructor(userDTO: UserDTO) : this(
+        null,
+        userDTO.username!!,
+        userDTO.password!!,
+        userDTO.name!!,
+        userDTO.lastName!!,
+        userDTO.email!!,
+        userDTO.dateOfBirth!!,
+        LocalDateTime.now(),
+        userDTO.globalRole!!.name,
+        null
     )
 
-    @JsonIgnore override fun getAuthorities() = mutableListOf(GlobalRole.valueOf(globalRole.toUpperCase()))
-    @JsonIgnore override fun getPassword() = password
-    fun setPassword(password: String) { this.password = password }
-    fun setUsername(username: String) { this.username = username }
-    @JsonIgnore override fun getUsername() = username
-    @JsonIgnore override fun isAccountNonExpired() = true
-    @JsonIgnore override fun isAccountNonLocked() = true
-    @JsonIgnore override fun isCredentialsNonExpired() = true
-    @JsonIgnore override fun isEnabled() = true
+    @JsonIgnore
+    override fun getAuthorities() = mutableListOf(GlobalRole.valueOf(globalRole.toUpperCase()))
+    @JsonIgnore
+    override fun getPassword() = password
+    fun setPassword(password: String) {
+        this.password = password
+    }
+
+    fun setUsername(username: String) {
+        this.username = username
+    }
+
+    @JsonIgnore
+    override fun getUsername() = username
+    @JsonIgnore
+    override fun isAccountNonExpired() = true
+    @JsonIgnore
+    override fun isAccountNonLocked() = true
+    @JsonIgnore
+    override fun isCredentialsNonExpired() = true
+    @JsonIgnore
+    override fun isEnabled() = true
 
     @JsonIgnore
     fun getJwtClaims(): Map<String, Any?> =

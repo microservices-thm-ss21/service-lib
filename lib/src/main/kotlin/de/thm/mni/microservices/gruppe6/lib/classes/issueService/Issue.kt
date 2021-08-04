@@ -21,15 +21,15 @@ data class Issue(
     var updateTime: LocalDateTime? = null,
     var status: String = IssueStatus.OPEN.name
 ) {
-    constructor(issueDTO: IssueDTO, creatorId: UUID): this(
+    constructor(issueDTO: IssueDTO, creatorId: UUID) : this(
+        null,
+        issueDTO.projectId!!,
+        issueDTO.message!!,
+        issueDTO.assignedUserId,
+        creatorId,
+        issueDTO.deadline,
+        LocalDateTime.now(),
         null
-        ,issueDTO.projectId!!
-        ,issueDTO.message!!
-        ,issueDTO.assignedUserId
-        ,creatorId
-        ,issueDTO.deadline
-        ,LocalDateTime.now()
-        ,null
     )
 
 }

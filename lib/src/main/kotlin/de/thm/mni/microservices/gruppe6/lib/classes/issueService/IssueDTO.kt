@@ -7,7 +7,7 @@ import java.util.*
 /**
  * DTO = Data Transport Object
  */
-data class IssueDTO (
+data class IssueDTO(
     var message: String? = null,
     var assignedUserId: UUID? = null,
     var projectId: UUID? = null,
