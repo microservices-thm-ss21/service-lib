@@ -73,7 +73,7 @@ data class User(
             Pair("dateOfBirth", Date.from(dateOfBirth.atStartOfDay(ZoneId.systemDefault()).toInstant())),
             Pair("createTime", Date.from(createTime.atZone(ZoneId.systemDefault()).toInstant())),
             Pair("globalRole", globalRole),
-            Pair("lastLogin", Date.from(lastLogin?.atZone(ZoneId.systemDefault())?.toInstant())),
+            Pair("lastLogin", Date.from(lastLogin?.atZone(ZoneId.systemDefault())?.toInstant() ?: Instant.now())),
         )
 
     @JsonIgnore
