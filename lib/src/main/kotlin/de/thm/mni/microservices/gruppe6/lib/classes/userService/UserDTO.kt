@@ -16,4 +16,8 @@ class UserDTO {
     @JsonFormat(pattern = "dd.MM.yyyy")
     var dateOfBirth: LocalDate? = null
     var globalRole: GlobalRole? = null
+
+    override fun toString(): String {
+        return "username: $username, password: $password, name: $name, lastName: $lastName, email: $email, dateOfBirth: $dateOfBirth role: $globalRole"
+    }
 }
