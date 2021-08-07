@@ -23,4 +23,8 @@ sealed class EventTopic {
     object DomainEvents_NewsService {
         const val topic = "microservices.domainEvents.newsService"
     }
+
+    object SagaEvents {
+        const val topic = "microservices.sagaEvents"
+    }
 }

@@ -5,7 +5,7 @@ import java.util.*
 
 /**
  * Event used for data-changing information's which are required for most services to update their internal database.
- * @property code DataEventcode whether the object was created, updated or deleted.
+ * @property code DataEventCode whether the object was created, updated or deleted.
  * @property id the unique UUID of the object issuing this event
  */
 abstract class DataEvent : Serializable {
