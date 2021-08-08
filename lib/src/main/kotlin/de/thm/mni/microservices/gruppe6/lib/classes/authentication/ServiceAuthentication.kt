@@ -4,6 +4,9 @@ import de.thm.mni.microservices.gruppe6.lib.classes.userService.GlobalRole
 import de.thm.mni.microservices.gruppe6.lib.classes.userService.User
 import org.springframework.security.core.Authentication
 
+/**
+ * Class representing a Authentication object used by all services.
+ */
 class ServiceAuthentication(
     val user: User?,
     private val jwt: String
