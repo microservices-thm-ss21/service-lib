@@ -23,7 +23,6 @@ data class User(
     @Column var dateOfBirth: LocalDate,
     @Column var createTime: LocalDateTime,
     @Column var globalRole: String,
-    @Column var lastLogin: LocalDateTime?
 ) : UserDetails {
     constructor(userDTO: UserDTO) : this(
         null,
@@ -35,7 +34,6 @@ data class User(
         userDTO.dateOfBirth!!,
         LocalDateTime.now(),
         userDTO.globalRole!!.name,
-        null
     )
 
     @JsonIgnore
@@ -73,7 +71,6 @@ data class User(
             Pair("dateOfBirth", Date.from(dateOfBirth.atStartOfDay(ZoneId.systemDefault()).toInstant())),
             Pair("createTime", Date.from(createTime.atZone(ZoneId.systemDefault()).toInstant())),
             Pair("globalRole", globalRole),
-            Pair("lastLogin", Date.from(lastLogin?.atZone(ZoneId.systemDefault())?.toInstant() ?: Instant.now())),
         )
 
     @JsonIgnore
@@ -87,7 +84,6 @@ data class User(
         Instant.ofEpochMilli(claims["dateOfBirth"] as Long).atZone(ZoneId.systemDefault()).toLocalDate(),
         Instant.ofEpochMilli(claims["createTime"] as Long).atZone(ZoneId.systemDefault()).toLocalDateTime(),
         claims["globalRole"] as String,
-        Instant.ofEpochMilli(claims["lastLogin"] as Long).atZone(ZoneId.systemDefault()).toLocalDateTime()
     )
 
 }
