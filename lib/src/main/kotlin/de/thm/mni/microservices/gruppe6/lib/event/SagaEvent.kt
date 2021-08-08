@@ -9,14 +9,21 @@ enum class SagaReferenceType {
     USER
 }
 
+enum class ProjectSagaStatus {
+    BEGIN,
+    ISSUES_DELETED,
+    COMPLETE
+}
+
 abstract class SagaEvent: Serializable {
     abstract val referenceType: SagaReferenceType
     abstract val referenceValue: UUID
     abstract val success: Boolean
 }
 
-data class DeletedIssuesSagaEvent(
-    override val referenceType: SagaReferenceType = SagaReferenceType.PROJECT,
+data class ProjectSagaEvent(
     override val referenceValue: UUID,
+    val projectSagaStatus: ProjectSagaStatus,
     override val success: Boolean,
-): SagaEvent()
+    override val referenceType: SagaReferenceType = SagaReferenceType.PROJECT
+    ): SagaEvent()
